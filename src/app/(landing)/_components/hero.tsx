@@ -6,7 +6,7 @@ export default function Hero(){
     return (
         <section className="py-20 px-4">
             <div className="container mx-auto text-center max-w-4xl">
-                <Badge variant="secondary" className="mb-6 text-sm px-4 py-2">
+                <Badge variant="primary" className="mb-6 text-sm px-4 py-2">
                     <Sparkles className="w-4 h-4 mr-2"/>
                     Революция в мире знакомств
                 </Badge>
