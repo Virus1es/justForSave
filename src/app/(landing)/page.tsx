@@ -4,7 +4,7 @@ import Features from "@/app/(landing)/_components/features";
 import Work from "@/app/(landing)/_components/work";
 import Testimonials from "@/app/(landing)/_components/testimonials";
 import CTA from "@/app/(landing)/_components/cta";
-import Footer from "@/app/(landing)/_components/footer";
+import Footer from "@/app/footer";
 
 export default function ElysiumLanding() {
   return (
@@ -25,9 +25,6 @@ export default function ElysiumLanding() {
 
         {/* CTA Section */}
         <CTA/>
-
-        {/* Footer */}
-        <Footer/>
       </div>
   )
 }
