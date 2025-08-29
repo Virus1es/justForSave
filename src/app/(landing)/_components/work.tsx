@@ -1,6 +1,4 @@
 import React from "react";
-import {Card, CardContent} from "@/components/ui/card";
-import {Brain, Shield, Zap} from "lucide-react";
 
 interface StepProps {
     index: number;
@@ -15,7 +13,7 @@ function Step({ index, title, description, bgColor, fgColor}: StepProps) {
         <div className="text-center">
             <div
                 className={`w-20 h-20 ${bgColor} rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold ${fgColor}`}>
-                {(index+1).toString()}
+                {index+1}
             </div>
             <h3 className="text-2xl font-bold mb-4">{title}</h3>
             <p className="text-muted-foreground text-pretty">
