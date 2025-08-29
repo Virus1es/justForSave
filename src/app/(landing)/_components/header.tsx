@@ -4,6 +4,7 @@ import {Heart} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {LoginDialogOrDrawer} from "@/app/(landing)/_components/login-form";
 import React, {useState} from "react";
+import {ThemeToggle} from "@/components/theming/theme-toggle";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
@@ -41,7 +42,7 @@ export default function Header() {
                             {link.title}
                         </a>
                     ))}
-
+                    <ThemeToggle />
                     <Button variant="outline" size="sm" onClick={() => { setOpen(true); }}>
                         Войти
                     </Button>
