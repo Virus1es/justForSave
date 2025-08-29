@@ -1,0 +1,45 @@
+"use client";
+
+import { Moon, Sun } from "lucide-react";
+
+import * as React from "react";
+
+import { useTheme } from "next-themes";
+
+import { Button } from "@/components/ui/button";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+const themes = { system: "Системная", light: "Светлая", dark: "Тёмная" };
+
+export function ThemeToggle() {
+    const { setTheme } = useTheme();
+
+    const dropDownMenuItems = Object.entries(themes).map(([key, value]) => (
+        <DropdownMenuItem
+            key={key}
+            onClick={() => {
+                setTheme(key);
+            }}
+        >
+            {value}
+        </DropdownMenuItem>
+    ));
+
+    return (
+        <DropdownMenu modal={false}>
+            <DropdownMenuTrigger asChild>
+                <Button className="cursor-pointer" variant="outline" size="icon">
+                    <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+                    <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+                    <span className="sr-only">Toggle theme</span>
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">{dropDownMenuItems}</DropdownMenuContent>
+        </DropdownMenu>
+    );
+}
