@@ -15,7 +15,7 @@ function Feedback({ name, age, city, text}: FeedbackProps) {
             <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                     {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-accent text-accent"/>
+                        <Star key={i} className="w-5 h-5 fill-orange-300 text-orange-300"/>
                     ))}
                 </div>
                 <p className="text-muted-foreground mb-4 text-pretty">
