@@ -3,10 +3,25 @@
 import {Heart} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {LoginDialogOrDrawer} from "@/app/(landing)/_components/login-form";
-import {useState} from "react";
+import React, {useState} from "react";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
+
+    const linksData = [
+        {
+            title: "Возможности",
+            link: "#features",
+        },
+        {
+            title: "Как это работает",
+            link: "#how-it-works",
+        },
+        {
+            title: "Отзывы",
+            link: "#testimonials",
+        }
+    ];
 
     return (
         <header
@@ -18,16 +33,15 @@ export default function Header() {
                     </div>
                     <span className="text-2xl font-bold text-foreground">Элизиум</span>
                 </div>
-                <nav className="hidden md:flex items-center space-x-6">
-                    <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
-                        Возможности
-                    </a>
-                    <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
-                        Как это работает
-                    </a>
-                    <a href="#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">
-                        Отзывы
-                    </a>
+                <nav className="flex items-center space-x-6">
+                    {linksData.map((link, index) => (
+                        <a key={index}
+                           href={link.link}
+                           className="hidden md:flex text-muted-foreground hover:text-foreground transition-colors">
+                            {link.title}
+                        </a>
+                    ))}
+
                     <Button variant="outline" size="sm" onClick={() => { setOpen(true); }}>
                         Войти
                     </Button>
