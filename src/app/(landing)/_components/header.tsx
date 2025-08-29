@@ -1,7 +1,13 @@
+"use client";
+
 import {Heart} from "lucide-react";
 import {Button} from "@/components/ui/button";
+import {LoginDialogOrDrawer} from "@/app/(landing)/_components/login-form";
+import {useState} from "react";
 
 export default function Header() {
+    const [open, setOpen] = useState(false);
+
     return (
         <header
             className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
@@ -22,11 +28,12 @@ export default function Header() {
                     <a href="#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">
                         Отзывы
                     </a>
-                    <Button variant="outline" size="sm">
+                    <Button variant="outline" size="sm" onClick={() => { setOpen(true); }}>
                         Войти
                     </Button>
                 </nav>
             </div>
+            <LoginDialogOrDrawer isOpen={open} setOpen={setOpen}/>
         </header>
     )
 }
