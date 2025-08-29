@@ -4,6 +4,22 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import {PasswordInput} from "@/components/ui/password-input";
+import { toast } from "sonner"
+import {AlertCircle} from "lucide-react";
+
+const showErrorToast = (message: string) => {
+    toast(message, {
+        icon: <AlertCircle className="h-5 w-5 text-destructive" />,
+        classNames: {
+            toast: "group toast group-[.toaster]:bg-destructive group-[.toaster]:text-destructive-foreground group-[.toaster]:border-destructive group-[.toaster]:shadow-lg",
+            title: "text-destructive-foreground font-semibold text-lg",
+            description: "text-destructive-foreground/80 text-base",
+            actionButton: "bg-destructive-foreground text-destructive",
+            cancelButton: "bg-muted text-muted-foreground",
+        },
+        duration: 4000,
+    });
+};
 
 export default function RegisterForm(){
     const [formData, setFormData] = useState({
@@ -24,7 +40,7 @@ export default function RegisterForm(){
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         if (formData.password !== formData.confirmPassword) {
-            alert("Пароли не совпадают!")
+            showErrorToast("Пароли не совпадают!");
             return
         }
         // Здесь будет логика регистрации
