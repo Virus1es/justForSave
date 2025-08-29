@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
+import {PasswordInput} from "@/components/ui/password-input";
 
 export default function RegisterForm(){
     const [formData, setFormData] = useState({
@@ -73,14 +74,14 @@ export default function RegisterForm(){
 
                 <div className="space-y-2">
                     <Label htmlFor="gender">Пол</Label>
-                    <Select value={formData.gender} onValueChange={(value) => handleInputChange("gender", value)}>
-                        <SelectTrigger>
+                    <Select value={formData.gender}
+                            onValueChange={(value) => handleInputChange("gender", value)}>
+                        <SelectTrigger className="w-full">
                             <SelectValue placeholder="Выберите пол"/>
                         </SelectTrigger>
                         <SelectContent>
                             <SelectItem value="male">Мужской</SelectItem>
                             <SelectItem value="female">Женский</SelectItem>
-                            <SelectItem value="other">Другой</SelectItem>
                         </SelectContent>
                     </Select>
                 </div>
@@ -88,9 +89,8 @@ export default function RegisterForm(){
 
             <div className="space-y-2">
                 <Label htmlFor="password">Пароль</Label>
-                <Input
+                <PasswordInput
                     id="password"
-                    type="password"
                     placeholder="Создайте пароль"
                     value={formData.password}
                     onChange={(e) => handleInputChange("password", e.target.value)}
@@ -100,9 +100,8 @@ export default function RegisterForm(){
 
             <div className="space-y-2">
                 <Label htmlFor="confirmPassword">Повторить пароль</Label>
-                <Input
+                <PasswordInput
                     id="confirmPassword"
-                    type="password"
                     placeholder="Повторите пароль"
                     value={formData.confirmPassword}
                     onChange={(e) => handleInputChange("confirmPassword", e.target.value)}
@@ -114,7 +113,7 @@ export default function RegisterForm(){
                 <div className="space-y-2">
                     <Label htmlFor="region">Регион</Label>
                     <Select value={formData.region} onValueChange={(value) => handleInputChange("region", value)}>
-                        <SelectTrigger>
+                        <SelectTrigger className="w-full">
                             <SelectValue placeholder="Выберите регион"/>
                         </SelectTrigger>
                         <SelectContent>

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
 import DialogOrDrawer from "@/components/dialog-or-drawer";
+import {PasswordInput} from "@/components/ui/password-input";
 
 interface LoginDialogProps {
     isOpen: boolean;
@@ -38,9 +39,8 @@ export function LoginDialogOrDrawer({ isOpen, setOpen }: LoginDialogProps) {
                 </div>
                 <div className="space-y-2">
                     <Label htmlFor="password">Пароль</Label>
-                    <Input
+                    <PasswordInput
                         id="password"
-                        type="password"
                         placeholder="Введите пароль"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
